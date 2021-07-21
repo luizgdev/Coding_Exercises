@@ -2,8 +2,9 @@
 int main()
 {
     int n, i, j;
-    float number[3], average[3];
+    float number[3];
     scanf("%d", &n);
+    float average[n];
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < 3; j++)
