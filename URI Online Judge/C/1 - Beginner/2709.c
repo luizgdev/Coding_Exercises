@@ -1,27 +1,23 @@
 #include <stdio.h>
+#define POSITION ((m - (n * i)) - 1)
 int prime(int sum)
 {
-    int i, aux = 0;
-    if (sum == 0)
+    int i;
+    if (sum == 2)
         return 1;
-    else
-    {
-        for (i = 1; i <= sum; i++)
-            if (sum % i == 0)
-                aux++;
-        if (aux > 2)
-            return 1;
-        else if (aux <= 2)
+    if (sum % 2 == 0)
+        return 0;
+    for (i = 3; i * i <= sum; i += 2)
+        if (sum % i == 0)
             return 0;
-    }
+    return 1;
 }
 int main()
 {
     int sum, n, i, m;
-    do
+    while (scanf("%d", &m) != EOF)
     {
         sum = 0;
-        scanf("%d", &m);
         int value[m];
         for (i = 0; i < m; i++)
             scanf("%d", &value[i]);
@@ -29,15 +25,11 @@ int main()
         if (n >= m)
             sum == 0;
         else
-        {
             for (i = 0; i < (m - n); i++)
-                sum += value[(m - (n * i)) - 1];
-        }
+                if (POSITION >= 0)
+                    sum += value[POSITION];
         sum = prime(sum);
-        if (sum == 1)
-            printf("Bad boy! I’ll hit you.\n");
-        else if (sum == 0)
-            printf("You’re a coastal aircraft, Robbie, a large silver aircraft.\n");
-    } while (sum == 1);
+        ((sum == 0) ? (printf("Bad boy! I’ll hit you.\n")) : (printf("You’re a coastal aircraft, Robbie, a large silver aircraft.\n")));
+    }
     return 0;
 }
