@@ -1,4 +1,4 @@
-int hammingWeight(u_int32_t n)
+int hammingWeight(/*uint32_t*/int n)
 {
     int cont;
 
